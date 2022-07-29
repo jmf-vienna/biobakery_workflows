@@ -32,3 +32,9 @@ jobs:
           tags: jmfvienna/biobakery_workflows:latest
           cache-from: type=registry,ref=user/app:latest
           cache-to: type=inline
+      - name: Update Docker Hub description
+        uses: peter-evans/dockerhub-description@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          repository: jmfvienna/biobakery_workflows
