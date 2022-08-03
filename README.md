@@ -12,7 +12,8 @@ Install required databases:
 # bind /opt to host filesystem for persistent storage of databases
 export SINGULARITY_BIND="/scratch/jmf/resources/biobakery_workflows:/opt"
 
-# humann.cfg needs to be writeable, therefore its symlinked to /opt in this customized image and a default version is restored there
+# humann.cfg needs to be writeable, therefore its symlinked to /opt 
+# in this customized image and a default version is restored there
 singularity exec \
   docker://jmfvienna/biobakery_workflows \
   cp -v /usr/local/lib/python3.6/dist-packages/humann/humann.cfg.orig /opt/humann.cfg
@@ -25,7 +26,8 @@ singularity exec \
 # download extra KneadData databases
 singularity exec \
   docker://jmfvienna/biobakery_workflows \
-  kneaddata_database --download mouse_C57BL bowtie2 /opt/biobakery_workflows_databases/kneaddata_db_mouse_C57BL
+  kneaddata_database --download mouse_C57BL bowtie2 \
+  /opt/biobakery_workflows_databases/kneaddata_db_mouse_C57BL
 ```
 
 ## Test by running the demo workflow
